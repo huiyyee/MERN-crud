@@ -50,7 +50,7 @@ const Home = () => {
 	}, [])
 
 	const getData = () => {
-		axios.get('http://localhost:5555/employees')
+		axios.get('https://mern-crud-server-six.vercel.app/employees')
             .then(res => {
                 setData(res.data.data);
             })
@@ -61,7 +61,7 @@ const Home = () => {
 
 	const handleEdit = (id) => {
 		handleShow();
-		axios.get(`http://localhost:5555/employees/${id}`).then((res) => {
+		axios.get(`https://mern-crud-server-six.vercel.app/employees/${id}`).then((res) => {
 			setEditID(id);
 			setEditName(res.data.employee_name);
 			setEditAge(res.data.employee_age);
@@ -74,7 +74,7 @@ const Home = () => {
 
 	const handleDelete = (id) => {
 		if (window.confirm('Are you sure you want to delete this record?')) {
-			const url = `http://localhost:5555/employees/${id}`;
+			const url = `https://mern-crud-server-six.vercel.app/employees/${id}`;
 
 			axios.delete(url)
 				.then(() => {
@@ -100,7 +100,7 @@ const Home = () => {
 
 
 	const handleUpdate = () => {
-		const url = `http://localhost:5555/employees/${editID}`;
+		const url = `https://mern-crud-server-six.vercel.app/employees/${editID}`;
 		const updatedData = {
 			employee_name: editName,
 			employee_age: editAge,
@@ -124,7 +124,7 @@ const Home = () => {
 
 
 	const handleSave = () => {
-		const url = 'http://localhost:5555/employees';
+		const url = 'https://mern-crud-server-six.vercel.app/employees';
 		const data = {
 			"employee_name": name,
 			"employee_age": age,
